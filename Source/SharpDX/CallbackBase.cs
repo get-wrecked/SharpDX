@@ -48,7 +48,8 @@ namespace SharpDX
             {
                 if (old == 0)
                 {
-                    throw new ObjectDisposedException("Cannot add a reference to a nonreferenced item");
+                    return 0;
+                    //throw new ObjectDisposedException("Cannot add a reference to a nonreferenced item");
                 }
                 var current = Interlocked.CompareExchange(ref refCount, old + 1, old);
                 if (current == old)
